@@ -26,7 +26,7 @@ int precedence(char c)
     }
 } 
 
-void infixToPost(string s) 
+void infixToPre(string s) 
 { 
     stack<char> stack; 
     stack.push('{'); 
@@ -106,6 +106,6 @@ int main()
             exp+=expression[i];
         }
     }
-    infixToPost(exp);
+    infixToPre(exp);
     return 0; 
 } 
