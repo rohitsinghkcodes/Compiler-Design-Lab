@@ -1,6 +1,7 @@
-//Program to convert infix expression to postfix expression
+//Program to convert infix expression to prefix expression
 
 #include<iostream>
+#include<algorithm>
 #include<stack>
 using namespace std;
 
@@ -79,7 +80,8 @@ void infixToPost(string s)
         str2 += c; 
     } 
     
-    cout<<"The postfix expression is: "<<str2 << endl; 
+    reverse(str2.begin(),str2.end());
+    cout<<"The prefix expression is: "<<str2 << endl; 
   
 } 
 
@@ -87,8 +89,23 @@ void infixToPost(string s)
 
 int main() 
 { 
-    string expression;
-    cin>>expression; 
-    infixToPost(expression);
+    string expression,exp;
+    cin>>expression;
+    for(int i=expression.length();i>0;i--)
+    {
+        if(expression[i]==')')
+        {
+            exp+='(';
+        }
+        else if (expression[i]=='(')
+        {
+            exp+=')';
+        }
+        else
+        {
+            exp+=expression[i];
+        }
+    }
+    infixToPost(exp);
     return 0; 
 } 
