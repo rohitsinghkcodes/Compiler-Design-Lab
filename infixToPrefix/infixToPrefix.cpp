@@ -77,7 +77,8 @@ void infixToPre(string s)
     { 
         char c = stack.top(); 
         stack.pop(); 
-        str2 += c; 
+        if(c=='(' or c==')') continue;
+        else str2 += c; 
     } 
     
     reverse(str2.begin(),str2.end());
